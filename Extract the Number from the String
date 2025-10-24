@@ -1,0 +1,28 @@
+class Solution 
+{
+    long ExtractNumber(String sentence) 
+    {
+        // code here
+        String parts [] = sentence.split(" ");
+        long sum = 0;
+        long res = 0;
+        for(String part: parts)
+        {
+            int i = 0;
+            sum = 0;
+            while(i<part.length() && part.charAt(i)>='0' && part.charAt(i)<='9')
+            {
+                long num = part.charAt(i)-'0';
+                sum= sum*10+num;
+                if(num==9)
+                {
+                    sum = 0;
+                    break;
+                }
+                i++;
+            }
+            res = Math.max(res,sum);
+        }
+        return res==0?-1:res;
+    }
+}
