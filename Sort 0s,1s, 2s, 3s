@@ -1,0 +1,15 @@
+class Solution {
+    public void sort0123(int[] arr) {
+        int[] count = new int[4];
+        
+        for (int val : arr)
+            count[val]++;
+        
+        int index = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < count[i]; j++) {
+                arr[index++] = i;
+            }
+        }
+    }
+}
